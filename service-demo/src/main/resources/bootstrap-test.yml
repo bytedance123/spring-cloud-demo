@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: service-demo
+  cloud:
+    config:
+      label: master
+      profile: test
+      discovery:
+        enabled: true
+        serviceId: server-config
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://62.234.115.117:8761/eureka/
+    serviceId: service-demo
+  instance:
+    ip-address: 62.234.115.117
+    prefer-ip-address: true
+    instance-id: 62.234.115.117:${server.port}
+    hostname: 62.234.115.117

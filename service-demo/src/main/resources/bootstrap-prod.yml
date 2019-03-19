@@ -1,0 +1,16 @@
+spring:
+    application:
+        name: service-demo
+    cloud:
+        config:
+            label: master
+            profile: prod
+            discovery:
+                enabled: true
+                serviceId: server-config
+
+eureka:
+    client:
+        serviceUrl:
+            defaultZone: http://hz1:8761/eureka/,http://hz2:8761/eureka/,http://hz3:8761/eureka/
+        serviceId: service-demo
