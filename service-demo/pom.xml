@@ -24,9 +24,9 @@
     <dependency>
       <groupId>com.tusmart</groupId>
       <artifactId>common-lib</artifactId>
-      <version>1.1.4</version>
+      <version>1.1.8</version>
       <scope>system</scope>
-      <systemPath>${basedir}/libs/common-lib-1.1.4.jar</systemPath>
+      <systemPath>${basedir}/libs/common-lib-1.1.8.jar</systemPath>
     </dependency>
     <dependency>
       <groupId>com.mininglamp</groupId>
