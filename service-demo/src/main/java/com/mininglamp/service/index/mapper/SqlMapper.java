@@ -10,7 +10,7 @@ import org.apache.ibatis.annotations.Select;
 
 @Mapper
 public interface SqlMapper {
-    @Select("select id,name,age from tb_demo where id = #{param.id}")
+    @Select("select id,name,age from tb_demo where id =#{id}")
     @ResultType(Map.class)
-    List<Map> list(@Param("param") Map map);
+    List<Map> list(Map map);
 }

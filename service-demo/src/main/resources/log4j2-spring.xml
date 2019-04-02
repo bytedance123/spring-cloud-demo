@@ -13,11 +13,11 @@
             <PatternLayout pattern="[%d{HH:mm:ss:SSS}] [%p] - %l - %m%n"/>
         </console>
         <!--文件会打印出所有信息，这个log每次运行程序会自动清空，由append属性决定，这个也挺有用的，适合临时测试用-->
-        <File name="log" fileName="../logs/demo.log" append="false">
+        <File name="log" fileName="../logs/tmp_demo.log" bufferedIO="true" immediateFlush="true">
             <PatternLayout pattern="%d{HH:mm:ss.SSS} %-5level %class{36} %L %M - %msg%xEx%n"/>
         </File>
         <!--每日定期存档-->
-        <RollingRandomAccessFile name="INFO" fileName="../logs/demo/info.log"
+        <RollingFile name="INFO" fileName="../logs/demo/info.log"
                      filePattern="../logs/demo/info.log_%d{yyyy-MM-dd}.log">
             <Filters>
                 <!--控制台只输出level及以上级别的信息（onMatch），其他的直接拒绝（onMismatch）-->
@@ -32,9 +32,9 @@
             </Policies>
             <!-- 最多备份300个 -->
             <DefaultRolloverStrategy max="300" />
-        </RollingRandomAccessFile>
+        </RollingFile>
  
-        <RollingRandomAccessFile name="WARN" fileName="../logs/demo/warn.log"
+        <RollingFile name="WARN" fileName="../logs/demo/warn.log"
                      filePattern="../logs/demo/warn.log_%d{yyyy-MM-dd}.log">
             <Filters>
                 <ThresholdFilter level="WARN" />
@@ -46,9 +46,9 @@
             </Policies>
             <!-- 最多备份300个 -->
             <DefaultRolloverStrategy max="300" />
-        </RollingRandomAccessFile>
+        </RollingFile>
  
-        <RollingRandomAccessFile name="ERROR" fileName="../logs/demo/error.log"
+        <RollingFile name="ERROR" fileName="../logs/demo/error.log"
                      filePattern="../logs/demo/error.log_%d{yyyy-MM-dd}.log">
             <ThresholdFilter level="ERROR"/>
             <PatternLayout pattern="[%d{HH:mm:ss:SSS}] [%p] - %l - %m%n"/>
@@ -58,7 +58,7 @@
             </Policies>
             <!-- 最多备份300个 -->
             <DefaultRolloverStrategy max="300" />
-        </RollingRandomAccessFile>
+        </RollingFile>
  
     </appenders>
     <!--然后定义logger，只有定义了logger并引入的appender，appender才会生效-->
@@ -73,6 +73,7 @@
             <appender-ref ref="INFO"/>
             <appender-ref ref="WARN"/>
             <appender-ref ref="ERROR"/>
+            <appender-ref ref="log"/>
         </root>
     </loggers>
  

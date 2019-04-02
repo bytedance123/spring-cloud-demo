@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.http.MediaType;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import io.swagger.annotations.Api;
@@ -64,7 +65,6 @@ public class IndexController extends BaseController{
     }
 
     @ApiOperation(value="基于BaseMapper执行数据查找", notes="能力来自mybatis-plus")
-    @ResponseBody
     @RequestMapping(value="/list", method={RequestMethod.GET})
     ResponseBean list(){
         return ResponseBean.ok().setData(service.findList());

@@ -13,6 +13,7 @@
         <module>server-eureka</module>
         <module>server-config</module>
         <module>service-demo</module>
+        <module>service-gateway</module>
     </modules>
 
     <name>springCloudDemo</name>
